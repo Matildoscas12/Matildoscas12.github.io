@@ -3,32 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Matilde - Portfólio</title>
+  <title>Matilde Santos - Portfólio</title>
+  <meta name="description" content="Portfólio de Matilde Santos, estudante de Engenharia Informática com paixão por tecnologia aeroespacial.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Sora:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Olá, sou a Matilde</h1>
-    <p>Estudante de Engenharia Informática</p>
+  <nav class="nav" aria-label="Principal">
+    <a class="brand" href="#topo">Matilde Santos</a>
+    <ul>
+      <li><a href="#sobre">Sobre mim</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="topo">
+    <canvas id="sky" aria-hidden="true"></canvas>
+    <div class="hero-text">
+      <h1>Olá, sou a Matilde.</h1>
+      <p class="lead">Estudante de Engenharia Informática. Transformo ciência espacial em software que funciona.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projetos">Ver projetos</a>
+        <a class="btn" href="#contacto">Falar comigo</a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Sobre mim</h2>
-    <p>Sou estudante do 3.º ano de Engenharia Informática na ESTGV (Instituto Politécnico de Viseu).
-       Sou entusiasta do desenvolvimento Full-Stack, Sistemas Embebidos e Arquitetura de Bases de Dados, com um fascínio especial pelas áreas de Ciência Espacial, Astronomia e Tecnologia Aeroespacial. Gosto de transformar conceitos complexos em aplicações funcionais, combinando código limpo, boa performance e interfaces modernas.</p>
-  </section>
+  <main>
+    <section id="sobre" class="wrap">
+      <h2>Sobre mim</h2>
+      <div class="about">
+        <p>Sou estudante do 3.º ano de Engenharia Informática na ESTGV (Instituto Politécnico de Viseu). Sou entusiasta do desenvolvimento Full-Stack, Sistemas Embebidos e Arquitetura de Bases de Dados, com um fascínio especial pelas áreas de Ciência Espacial, Astronomia e Tecnologia Aeroespacial. Gosto de transformar conceitos complexos em aplicações funcionais, combinando código limpo, boa performance e interfaces modernas.</p>
+        <dl class="facts">
+          <div><dt>Curso</dt><dd>Engenharia Informática, 3.º ano</dd></div>
+          <div><dt>Instituição</dt><dd>ESTGV, Instituto Politécnico de Viseu</dd></div>
+          <div><dt>Competências</dt><dd>Full-Stack, Sistemas Embebidos, Bases de Dados</dd></div>
+          <div><dt>Fascínio</dt><dd>Ciência espacial, astronomia, aeroespacial</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <section>
-    <h2>Projetos</h2>
-    <ul>
-      <li><a href="https://github.com/Matildoscas12/ExoExplorer_Simulator.git">ExoExplorer (Unity)</a> - Simulador do nosso vasto Sistema Solar e variosos astros fora dele</li>
-      <li><a href="https://github.com/Matildoscas12/Sistema_Badges.git">Plataforma de Badges (Softinsa)</a> - Um website e aplicação de uma plataforma de obtenção de badges ao desenvolver cursos</li>
-    </ul>
-  </section>
+    <section id="projetos" class="wrap">
+      <h2>Projetos</h2>
+      <article class="project">
+        <h3>ExoExplorer (Unity)</h3>
+        <p>Simulador do nosso vasto Sistema Solar e de vários astros fora dele.</p>
+        <ul class="tags"><li>Unity</li><li>Simulação</li><li>Astronomia</li></ul>
+        <a class="link" href="https://github.com/Matildoscas12/ExoExplorer_Simulator.git">Ver no GitHub</a>
+      </article>
+      <article class="project">
+        <h3>Plataforma de Badges (Softinsa)</h3>
+        <p>Website e aplicação onde os utilizadores conquistam badges ao concluírem cursos.</p>
+        <ul class="tags"><li>Full-Stack</li><li>Web</li><li>App móvel</li></ul>
+        <a class="link" href="https://github.com/Matildoscas12/Sistema_Badges.git">Ver no GitHub</a>
+      </article>
+    </section>
 
-  <section>
-    <h2>Contacto</h2>
-    <p>matildesantos7488@gmail.com | <a href="www.linkedin.com/in/matilde-santos-8894b0317">LinkedIn</a></p>
-  </section>
+    <section id="contacto" class="wrap">
+      <h2>Contacto</h2>
+      <p class="contact-intro">Tens um projeto ou uma oportunidade? Escreve-me.</p>
+      <ul class="contacts">
+        <li><a href="mailto:matildesantos7488@gmail.com">matildesantos7488@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/matilde-santos-8894b0317">LinkedIn</a></li>
+        <li><a href="https://github.com/Matildoscas12">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>Matilde Santos, Viseu</footer>
+
+  <script>
+  (function () {
+    var c = document.getElementById('sky'), g = c.getContext('2d');
+    var W, H, R, cx, cy, stars = [];
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var planets = [
+      { a: 2.4, p: 6,  r: .22, col: '#6fd3ff', ph: 0 },
+      { a: 3.6, p: 12, r: .30, col: '#ffb454', ph: 2.1 },
+      { a: 5.0, p: 21, r: .38, col: '#b9a8ff', ph: 4.2 }
+    ];
+
+    function size() {
+      var d = Math.min(window.devicePixelRatio || 1, 2);
+      W = c.clientWidth; H = c.clientHeight;
+      c.width = W * d; c.height = H * d;
+      g.setTransform(d, 0, 0, d, 0, 0);
+      R = Math.max(24, Math.min(W * .06, H * .1));
+      var wide = W > 820;
+      cx = wide ? W * .68 : W * .5;
+      cy = wide ? H * .5 : H * .22;
+      stars = [];
+      for (var i = 0, n = Math.round(W * H / 5000); i < n; i++) {
+        stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.1 + .2, p: Math.random() * 6.28, s: Math.random() * .8 + .3 });
+      }
+    }
+
+    function pos(pl, t) {
+      var ang = pl.ph + t * 6.2832 / pl.p, a = pl.a * R;
+      return { x: cx + a * Math.cos(ang), y: cy + a * .3 * Math.sin(ang), front: Math.sin(ang) > 0, pr: pl.r * R };
+    }
+
+    function bright(t) {
+      var b = 1;
+      planets.forEach(function (pl) {
+        var q = pos(pl, t), dx = Math.abs(q.x - cx);
+        if (q.front && dx < R) b -= (q.pr / R) * (q.pr / R) * 3.2 * Math.sqrt(1 - (dx / R) * (dx / R));
+      });
+      return b;
+    }
+
+    function drawPlanet(q, col) {
+      var gr = g.createRadialGradient(q.x - q.pr * .4, q.y - q.pr * .4, q.pr * .1, q.x, q.y, q.pr);
+      gr.addColorStop(0, '#fff'); gr.addColorStop(.25, col); gr.addColorStop(1, '#0a0e26');
+      g.fillStyle = gr; g.beginPath(); g.arc(q.x, q.y, q.pr, 0, 6.2832); g.fill();
+    }
+
+    function draw(t) {
+      g.clearRect(0, 0, W, H);
+      stars.forEach(function (s) {
+        g.globalAlpha = .35 + .35 * Math.sin(t * s.s + s.p);
+        g.fillStyle = '#f3efe6';
+        g.beginPath(); g.arc(s.x, s.y, s.r, 0, 6.2832); g.fill();
+      });
+      g.globalAlpha = 1;
+      g.lineWidth = 1; g.strokeStyle = 'rgba(154,163,199,.18)';
+      planets.forEach(function (pl) {
+        g.beginPath(); g.ellipse(cx, cy, pl.a * R, pl.a * R * .3, 0, 0, 6.2832); g.stroke();
+      });
+      var qs = planets.map(function (pl) { return pos(pl, t); });
+      qs.forEach(function (q, i) { if (!q.front) drawPlanet(q, planets[i].col); });
+      var b = bright(t);
+      var glow = g.createRadialGradient(cx, cy, R * .2, cx, cy, R * 3.2);
+      glow.addColorStop(0, 'rgba(255,180,84,' + (.55 * b) + ')'); glow.addColorStop(1, 'rgba(255,180,84,0)');
+      g.fillStyle = glow; g.beginPath(); g.arc(cx, cy, R * 3.2, 0, 6.2832); g.fill();
+      var sg = g.createRadialGradient(cx, cy, 0, cx, cy, R);
+      sg.addColorStop(0, '#fff6dc'); sg.addColorStop(1, '#ffb454');
+      g.globalAlpha = Math.max(.55, b); g.fillStyle = sg;
+      g.beginPath(); g.arc(cx, cy, R, 0, 6.2832); g.fill(); g.globalAlpha = 1;
+      qs.forEach(function (q, i) { if (q.front) drawPlanet(q, planets[i].col); });
+      curve(t);
+    }
+
+    function curve(t) {
+      if (W < 560) return;
+      var w = 220, h = 54, x0 = W - w - 28, y0 = H - h - 40, n = 110, dt = .18;
+      g.fillStyle = 'rgba(154,163,199,.85)';
+      g.font = '12px "Hanken Grotesk", sans-serif';
+      g.fillText('Curva de luz da estrela', x0, y0 - 10);
+      g.strokeStyle = '#6fd3ff'; g.lineWidth = 1.5; g.beginPath();
+      for (var i = 0; i < n; i++) {
+        var px = x0 + w * i / (n - 1), v = bright(t - (n - 1 - i) * dt);
+        var py = y0 + h * (1 - v) * 3.2 + 6;
+        if (i) g.lineTo(px, py); else g.moveTo(px, py);
+      }
+      g.stroke();
+    }
+
+    function loop(ms) { draw(ms / 1000); requestAnimationFrame(loop); }
+
+    size();
+    window.addEventListener('resize', function () { size(); if (reduce) draw(3); });
+    if (reduce) draw(3); else requestAnimationFrame(loop);
+  })();
+  </script>
 </body>
 </html>
